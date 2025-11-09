@@ -3,15 +3,15 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {color} from "@/lib/constants/colors";
 import {useState} from "react";
-import Image from "next/image";
+import * as React from "react";
 
 interface SideBarLinkProps {
     linkHref: string,
-    icon: string,
+    Icon: React.ComponentType<{fill:string,className:string,style:React.CSSProperties}>,
     title: string,
 }
 
-const SideBarLink=({linkHref,title, icon}:SideBarLinkProps)=>{
+const SideBarLink=({linkHref,title,Icon}:SideBarLinkProps)=>{
     const pathname=usePathname();
     const isActive=pathname===linkHref;
     const [isHovered, setHovered] = useState(false);
@@ -22,12 +22,14 @@ const SideBarLink=({linkHref,title, icon}:SideBarLinkProps)=>{
             onMouseEnter={()=>setHovered(true)}
             onMouseLeave={()=>setHovered(false)}
         >
-            <Image src={icon} alt={"Hi"} height={16}/>
-            <h3
+            <Icon
+                fill={color.primary}
+                className={`h-4  cursor-pointer`}
                 style={{
-                    color:isActive?color.secondary:isHovered?color.secondary:color.primary,
+                    fill:isActive?color.secondary:isHovered?color.secondary:color.primary,
                 }}
-            >{title}</h3>
+            />
+            <h3 style={{color:isActive?color.secondary:isHovered?color.secondary:color.primary,}}>{title}</h3>
         </Link>
     )
 }

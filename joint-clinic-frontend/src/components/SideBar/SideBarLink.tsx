@@ -9,9 +9,10 @@ interface SideBarLinkProps {
     linkHref: string,
     Icon: React.ComponentType<{fill:string,className:string,style:React.CSSProperties}>,
     title: string,
+    expanded?: boolean,
 }
 
-const SideBarLink=({linkHref,title,Icon}:SideBarLinkProps)=>{
+const SideBarLink=({linkHref,title,Icon,expanded}:SideBarLinkProps)=>{
     const pathname=usePathname();
     const isActive=pathname===linkHref;
     const [isHovered, setHovered] = useState(false);
@@ -24,12 +25,14 @@ const SideBarLink=({linkHref,title,Icon}:SideBarLinkProps)=>{
         >
             <Icon
                 fill={color.primary}
-                className={`h-4  cursor-pointer`}
+                className={`h-[41px]  cursor-pointer`}
                 style={{
                     fill:isActive?color.secondary:isHovered?color.secondary:color.primary,
                 }}
             />
-            <h3 style={{color:isActive?color.secondary:isHovered?color.secondary:color.primary,}}>{title}</h3>
+            {expanded && (
+                <h3 style={{color:isActive?color.secondary:isHovered?color.secondary:color.primary, fontSize:"24px"}}>{title}</h3>
+            )}
         </Link>
     )
 }

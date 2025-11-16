@@ -1,13 +1,14 @@
-import Button from '@/components/atoms/button'
-import FeatureCard from '@/components/molecules/featureCard'
-import React from 'react';
+import SideBar from "@components/SideBar/SideBar";
+import NavBar from "@components/NavBar/NavBar";
 
-const LandingPage: React.FC = () => {
+export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
-      <main className='m-[20px] radius-[16px] '></main>
+    <div className={"w-full"}>
+        {/*{Don't push code to the repo in here}*/}
+        <div className={"flex flex-col bg-[#9FD5E2] w-full h-[100vh] justify-center items-center gap-10 p-5"}>
+            <NavBar />
+                <SideBar/>
+        </div>
     </div>
   );
-};
-
-export default LandingPage;
+}

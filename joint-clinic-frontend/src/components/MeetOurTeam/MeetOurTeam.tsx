@@ -32,7 +32,7 @@ const MeetOurTeam = () => {
 
 
     return (
-        <section className="team_section bg-[#9fd5e2] h-screen flex flex-col justify-center items-center gap-8">
+        <>
             <h1
                 className={`text-[60px] md:text-[100px] font-bold font-['IBM_Plex_Sans'] text-[#fff] text-center`}
             >
@@ -53,7 +53,7 @@ const MeetOurTeam = () => {
                     </div>
                 ))}
             </div>
-        </section>
+        </>
     )
 }
 

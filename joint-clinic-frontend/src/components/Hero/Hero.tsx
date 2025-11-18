@@ -9,9 +9,7 @@ interface HeroProps {
 
 const Hero = ({font}: HeroProps) => {
   return (
-    <div
-        className={"h-screen w-full flex flex-col justify-center items-center"}
-      >
+    <>
         {/*{Don't push code to the repo in here}*/}
         <main
           className={
@@ -40,7 +38,7 @@ const Hero = ({font}: HeroProps) => {
             <Button2 text="Get Started" />
           </div>
         </main>
-      </div>
+    </>
   )
 }
 

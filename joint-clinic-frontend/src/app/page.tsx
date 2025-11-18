@@ -14,10 +14,21 @@ const ibmPlex = IBM_Plex_Sans({
 export default function Home() {
   return (
     <div className="con bg-[#9fd5e2]">
-      <Hero font={ibmPlex} />
-      <WhoWeAre />
-      <MeetOurTeam />
-      <ChooseUs />
+      <div className={"h-screen w-full flex flex-col justify-center items-center"}>
+        <Hero font={ibmPlex} />
+      </div>
+
+      <section className="who_we_are flex justify-center items-center h-screen text-[#fff] flex-col">
+        <WhoWeAre />
+      </section>
+
+      <section className="team_section bg-[#9fd5e2] h-screen flex flex-col justify-center items-center gap-8">
+        <MeetOurTeam />
+      </section>
+
+      <section className="chooseUs h-screen flex flex-col justify-center items-center  md:mt-0 gap-8">
+        <ChooseUs />
+      </section>
       {/* {<Pagination total={5} />} */}
     </div>
   );

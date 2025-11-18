@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function HorizontalScroll() {
     const wrapperRef = useRef(null);
-    const trackRef = useRef(null);
+    const trackRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -82,9 +82,9 @@ export default function HorizontalScroll() {
                 className="flex h-full w-max relative z-10 mt-30 items-start pl-60"
             >
                 {cards.map((card, index) => (
-                    <div 
-                    key={index}
-                    className="w-[650px] h-[380px] rounded-xl border border-gray-300 border-2 text-center flex flex-col items-center gap-50 pt-10 ml-4 bg-[#7099C0]">
+                    <div
+                        key={index}
+                        className="w-[650px] h-[380px] rounded-xl border border-gray-300 border-2 text-center flex flex-col items-center gap-50 pt-10 ml-4 bg-[#7099C0]">
                         <h1 className="text-4xl font-bold text-white">{card.title}</h1>
                         <p className="text-white">{card.desc}</p>
                     </div>

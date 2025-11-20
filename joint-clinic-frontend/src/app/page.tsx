@@ -23,7 +23,6 @@ export default function Home() {
       </div>
 
       <section className=" flex justify-center items-center bg-[9fd5e2] flex-col">
-      <section className=" flex justify-center items-center bg-[9fd5e2] flex-col">
         <WhoWeAre />
       </section>
 
@@ -38,8 +37,6 @@ export default function Home() {
       <section className="h-screen flex items-center justify-center">
         <YourSafety />
       </section>
-      {/* {<Pagination total={5} />} */}
-      <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">
       <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">
         <HowWorks />
       </section>

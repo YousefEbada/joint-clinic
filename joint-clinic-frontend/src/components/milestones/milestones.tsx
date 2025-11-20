@@ -57,11 +57,11 @@ export default function HorizontalScroll() {
             className="relative h-screen w-full overflow-hidden"
         >
             {/* Background image */}
-            <div className="absolute transform uppercase translate-y-[100%] inset-0 h-50 object-cover z-0 w-[700px] top-50 mr-[300px] ml-[150px] flex items-center">
+            <div className="absolute inset-0 h-50 object-cover z-0 w-50 top-50 ml-2 flex items-center">
                 <div
                     style={{
-                        height: "400px",
-                        width: "400px",
+                        height: "100%",
+                        width: "100%",
                         backgroundImage: "url('./planet.png')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
@@ -71,22 +71,22 @@ export default function HorizontalScroll() {
                         alignItems: "center",
                     }}
                 >
-                    <h1 className="text-[#FDB515] font-bold absolute text-[64px] font-bold left-10 right-[-40px]">What’s New
-                        <br />at Joint Clinic</h1>
+                    <h1 className="text-3xl text-[#FDB515] font-bold absolute left-10 right-[-40px]">What’s New
+                        at Joint Clinic</h1>
                 </div>
             </div>
 
             {/* Horizontal scrollable content */}
             <div
                 ref={trackRef}
-                className="flex h-full top-[8%] left-[20%] w-max relative z-10 mt-30 items-start pl-60"
+                className="flex h-full w-max relative z-10 mt-30 items-start pl-60"
             >
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="w-[977px] h-[580px] rounded-[35px] border border-gray-300 border-2 mr-[70px] text-center flex flex-col items-start justify-between py-[2%] px-[1%] gap-50 pt-10 ml-4 bg-[#7099C0]">
-                        <h1 className="text-[64px] uppercase font-bold text-white">{card.title}</h1>
-                        <p className="text-[white] text-[20px] font-bold">{card.desc}</p>
+                        className="w-[650px] h-[380px] rounded-xl border border-gray-300 border-2 text-center flex flex-col items-center gap-50 pt-10 ml-4 bg-[#7099C0]">
+                        <h1 className="text-4xl font-bold text-white">{card.title}</h1>
+                        <p className="text-white">{card.desc}</p>
                     </div>
                 ))}
             </div>

@@ -1,0 +1,10 @@
+.feature-item:before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #0A1C32;
+  display: inline-block;
+  flex-shrink: 0;
+  transform: translateY(60%);
+}

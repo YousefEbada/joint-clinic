@@ -19,7 +19,7 @@ export default function Home() {
         <Hero font={ibmPlex} />
       </div>
 
-      <section className=" flex justify-center items-center text-[9fd5e2] flex-col">
+      <section className=" flex justify-center items-center bg-[9fd5e2] flex-col">
         <WhoWeAre />
       </section>
 

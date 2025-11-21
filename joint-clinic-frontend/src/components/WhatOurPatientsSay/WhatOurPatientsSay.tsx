@@ -91,7 +91,8 @@ export default function WhatOurPatientsSay() {
           sm:auto-cols-[60vw]
           md:auto-cols-[33vw]
           lg:auto-cols-[28vw]
-          gap-6 
+          gap-x-6
+          gap-y-[-10px]
           w-max 
           h-full 
           px-10 md:px-20           
@@ -116,10 +117,11 @@ export default function WhatOurPatientsSay() {
               type="section"
               className={`
                 ${Offset}
+                ${Offset}
                 mx-auto 
                 p-4 sm:p-6 md:p-7 lg:p-8
                 rounded-[14px] sm:rounded-[18px] md:rounded-[20px]
-                bg-white shadow-[0px_8px_24px_rgba(0,0,0,0.08)]                
+                 shadow-[0px_8px_24px_rgba(0,0,0,0.08)]                
                 flex flex-col justify-between items-center
                 w-full 
                 h-[120px] sm:h-[140px] md:h-[160px] lg:h-[180px]                

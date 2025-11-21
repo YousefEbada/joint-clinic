@@ -1,6 +1,5 @@
 
 import { IBM_Plex_Sans } from "next/font/google";
-import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 import Hero from "@/components/Hero/Hero";
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import HorizontalScroll from "@/components/Horizontal/Horizontal";
@@ -9,6 +8,7 @@ import HowWorks from "@/components/howWorks/howWorks";
 import WhatOurPatientsSay from "@/components/WhatOurPatientsSay/WhatOurPatientsSay";
 import Footer from "@/components/footer/footer";
 import Book from "@/components/booking/book";
+import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 
 const ibmPlex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -18,6 +18,7 @@ const ibmPlex = IBM_Plex_Sans({
 export default function Home() {
   return (
     <div className="con bg-[#9fd5e2]">
+      <div className={"h-screen w-full flex flex-col justify-center items-center"}>
       <div className={"h-screen w-full flex flex-col justify-center items-center"}>
         <Hero font={ibmPlex} />
       </div>
@@ -35,9 +36,10 @@ export default function Home() {
       </section> 
      
       <section className="h-screen flex items-center justify-center">
+      </section>
+     <section className="h-screen flex items-center justify-center">
         <YourSafety />
       </section> 
-      {/* {<Pagination total={5} />} */}
       <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">
         <HowWorks />
       </section>

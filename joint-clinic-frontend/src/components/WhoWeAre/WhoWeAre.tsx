@@ -2,6 +2,7 @@
 import React, { Activity, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Observer } from "gsap/Observer";
 
 import Circle from "@/components/icons/Circle";
 import Circle2Circles from "@/components/icons/Circle2Circles";
@@ -17,6 +18,7 @@ export default function WhoWeAre() {
   const whoRef = useRef<HTMLDivElement | null>(null);
   const circle2Ref = useRef<HTMLDivElement | null>(null);
   const redRef = useRef<HTMLDivElement | null>(null);
+  const progressRedRef = useRef<HTMLDivElement | null>(null);
   const teamRef = useRef<HTMLDivElement | null>(null);
 
   const [step, setStep] = useState(0);
@@ -45,47 +47,80 @@ export default function WhoWeAre() {
     },
   ];
   const cards = [
-    {
-      title: "HOLIDAY HOURS UPDATE",
-      desc: "Our clinic will be closed on Friday, Sept 25, for maintenance. Online services remain available.",
-    },
-    {
-      title: "NEW SPECIALIST JOINS OUR TEAM",
-      desc: "Welcome Dr. Hany, our new physiotherapy expert specializing in sports injury recovery.",
-    },
-    {
-      title: "YOUR RECOVERY UPDATES",
-      desc: "Learn about new features added to improve your recovery tracking.",
-    },
-    {
-      title: "Effortless Recovery",
-      desc: "Book physiotherapy sessions, access your medical reports, and follow your personalized exercise plan – all in one secure platform.",
-    },
-  ];
-  // map progress -> step
+        {
+            title: "HOLIDAY HOURS UPDATE",
+            desc: "Our clinic will be closed on Friday, Sept 25, for maintenance. Online services remain available.",
+        },
+        {
+            title: "NEW SPECIALIST JOINS OUR TEAM",
+            desc: "Welcome Dr. Hany, our new physiotherapy expert specializing in sports injury recovery.",
+        },
+        {
+            title: "YOUR RECOVERY UPDATES",
+            desc: "Learn about new features added to improve your recovery tracking.",
+        },
+        {
+            title: "Effortless Recovery",
+            desc: "Book physiotherapy sessions, access your medical reports, and follow your personalized exercise plan – all in one secure platform."
+        }
+    ];
   useEffect(() => {
-    const st = ScrollTrigger.create({
+    ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=350%", // adjust to taste; spacer should be end - 100vh
-      scrub: true,
+      end: "+=350%",
       pin: true,
+      scrub: false,
       pinSpacing: true,
-      onUpdate: (self) => {
-        const p = self.progress;
-        if (p < 0.2) setStep(0);
-        else if (p < 0.4) setStep(1);
-        else if (p < 0.6) setStep(2);
-        else if (p < 0.8) setStep(3);
-        else setStep(4);
-      },
     });
 
-    return () => {
-      st.kill();
-      ScrollTrigger.getAll().forEach((s) => s.kill());
-    };
+    return () => ScrollTrigger.getAll().forEach((s) => s.kill());
   }, []);
+
+  // ░░░░░░░░░░░░░░░░░░░░░
+  // 2) OBSERVER → STEP   |
+  // ░░░░░░░░░░░░░░░░░░░░░
+  useEffect(() => {
+  let locked = false;
+
+  const next = () => {
+    if (locked) return;
+    setStep((s) => Math.min(s + 1, 5));
+    locked = true;
+    setTimeout(() => (locked = false), 600);
+  };
+
+  const prev = () => {
+    if (locked) return;
+    setStep((s) => Math.max(s - 1, 0));
+    locked = true;
+    setTimeout(() => (locked = false), 600);
+  };
+
+  const observer = Observer.create({
+    target: sectionRef.current,        // 👈 only observe your pinned section
+    type: "wheel,touch,scroll,keydown",
+    wheelSpeed: 1,
+    preventDefault: false,             // 👈 FIX: allow natural scrolling
+    tolerance: 15,                     // 👈 makes swipes smooth
+    onDown: () => {
+      const touch = Observer.isTouch;
+      if (touch) prev();   // 👈 TOUCH SWIPE DOWN = previous
+      else next();                // 👈 TRACKPAD SCROLL DOWN = next
+    },
+
+    onUp: () => {
+      const touch = Observer.isTouch;
+      if (touch) next();   // 👈 TOUCH SWIPE UP = next
+      else prev();                // 👈 TRACKPAD SCROLL UP = previous
+    },                       // scroll up → prev
+    onRight: next,                     // swipe right → next
+    onLeft: prev,                      // swipe left → prev
+  });
+
+  return () => observer.kill();
+}, []);
+
 
   // animate on step change — each step has its own short timeline
   useEffect(() => {
@@ -123,35 +158,43 @@ export default function WhoWeAre() {
     tl.to(w, { opacity: 1, y: 0 }, "<0.15");
   }
 
-  // STEP 2
-  if (step === 2) {
-    tl.to(w, { opacity: 0, y: 20 }, 0);
-    tl.to(c1, { opacity: 0, scale: 1, y: -50 }, 0.05);
-    tl.fromTo(
-      c2,
-      { opacity: 0, scale: 1, y: -200 },
-      { opacity: 1, scale: 1, y: -200 },
-      "<0.05"
-    );
-  }
+    if (step === 2) {
+      // hide who & circle1, crossfade into circle2 from same position
+      tl.to([w], { opacity: 0, y: 20 }, 0);
+      tl.to(c1, { opacity: 0, scale: 1, y: -50 }, 0.05);
+      tl.fromTo(
+        c2,
+        { opacity: 0, scale: 1, y: -200 },
+        { opacity: 1, scale: 1, y: -200 },
+        "<0.05"
+      );
+      tl.fromTo(
+        r,
+        { opacity: 0, y: 200 },
+        { opacity: 1, y: -180 }, // adjust y so it visually sticks to bottom of circle2
+        "<0.05"
+      );
+    }
 
-  // STEP 3
-  if (step === 3) {
-    tl.set(c2, { opacity: 1, scale: 1, y: -200 }, 0);
-    tl.fromTo(
-      r,
-      { opacity: 0, y: 200 },
-      { opacity: 1, y: -180 },
-      "<0.05"
-    );
-  }
+    if (step === 3) {
+      // ensure circle2 visible and let red line pop up into place
+      tl.set(c2, { opacity: 1, scale: 1, y: -200 }, 0);
+      // animate red line from off-screen bottom into a position under circle2
+      tl.set(r, { opacity: 1, y: -180 }, 0);
+      tl.fromTo(t, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, "<0.15");
+    }
 
-  // STEP 4
-  if (step === 4) {
-    tl.set(c2, { opacity: 1, y: -200 }, 0);
-    tl.set(r, { opacity: 1, y: -180 }, 0);
-    tl.fromTo(t, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, "<0.15");
-  }
+    if (step === 4) {
+      // keep c2 + red visible, fade in team below
+      tl.set(c2, { opacity: 1, y: -200 }, 0);
+      tl.set(r, { opacity: 1, y: -180 }, 0);
+      tl.to(t, { opacity: 0, y: 40 }, 0);
+      tl.to(c2, { opacity: 1, y: -500 }, 0);
+      tl.to(r, { opacity: 1, y: -380, scaleY: 12 }, 0);
+    }
+    if (step === 5) {
+      tl.set(r, { opacity: 1, y: -380, scaleY: 12 }, 0);
+    }
 
   return cleanup; // always valid
 
@@ -208,15 +251,9 @@ export default function WhoWeAre() {
             </div>
 
             {/* Team (positioned visually below; will fade in on final step) */}
-            <div
-              ref={teamRef}
-              className="absolute left-1/2 -translate-x-1/2 text-center"
-              style={{ top: "62%" }}
-            >
-              <h1 className="text-[36px] md:text-[56px] font-bold mb-6">
-                Meet Our Team
-              </h1>
-              <div className="grid w-max grid-cols-5 md:grid-cols-5 gap-6">
+            <div ref={teamRef} className="absolute left-1/2 -translate-x-1/2 text-center" style={{ top: "62%" }}>
+              <h1 className="text-[36px] md:text-[56px] font-bold mb-6">Meet Our Team</h1>
+              <div className="grid w-max grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {memberinfo.map((m, i) => (
                   <div key={i} className="flex flex-col items-center">
                     <Profile fill={m.fill} className="w-[56px] mb-2" />
@@ -226,14 +263,17 @@ export default function WhoWeAre() {
                 ))}
               </div>
             </div>
-            <Activity mode="hidden">
-              <div>
-                <h2
-                  className={`text-[40px] md:text-[64px] font-bold font-['IBM_Plex_Sans'] text-[#fff]`}
-                >
+            <Activity mode={step >=4? "visible":"hidden"}>
+              <div ref={progressRedRef} style={{ width: 200, height: 40, rotate:"90deg" }} className="absolute lg:bottom-8 lg:-left-115 z-50" >
+              <RedLine className="w-full h-full" />
+            </div>
+            <div className="min-w-screen text-center flex flex-col items-center justify-center mt-40 gap-10">
+              <h2 className={`text-[40px] md:text-[64px] font-bold font-['IBM_Plex_Sans'] text-white`} >
                   Why Choose Us?
-                </h2>
-                <div className="cards mx-auto grid grid-cols-2 md:grid-cols-4">
+              </h2>
+              <div className="cards min-w-full self-center grid grid-cols-2 md:grid-cols-4 -gap-6 p-2 md:p-10 lg:p-20 gap-6" onClick={()=>{
+                
+              }}>
                   {cards.map((card, index) => {
                     return (
                       <FeatureCard
@@ -249,9 +289,6 @@ export default function WhoWeAre() {
           </div>
         </div>
       </section>
-
-      {/* spacer to prevent overflow (end: 350% -> spacer = 250vh) */}
-      {/* <div style={{ height: "250vh" }} /> */}
     </>
   );
 }

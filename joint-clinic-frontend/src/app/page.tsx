@@ -26,9 +26,9 @@ export default function Home() {
         <WhoWeAre />
       </section>
 
-      <section className="chooseUs h-screen flex flex-col justify-center items-center md:mt-0 gap-8">
+      {/* <section className="chooseUs h-screen flex flex-col justify-center items-center md:mt-0 gap-8">
         <ChooseUs />
-      </section>
+      </section> */}
 
       <section className="features_section bg-[#0d7b93] overflow-hidden py-10">
         <HorizontalScroll />
@@ -40,9 +40,9 @@ export default function Home() {
       <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">
         <HowWorks />
       </section>
-        <section className="h-screen flex items-center bg-[#edf7f9] justify-center">
+        {/* <section className="h-screen flex items-center bg-[#edf7f9] justify-center">
         <Book />
-      </section>
+      </section> */}
       <section>
         <WhatOurPatientsSay />
       </section>

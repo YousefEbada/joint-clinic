@@ -57,11 +57,11 @@ export default function HorizontalScroll() {
             className="relative h-screen w-full overflow-hidden"
         >
             {/* Background image */}
-            <div className="absolute transform uppercase translate-y-[100%] inset-0 h-50 object-cover z-0 w-[700px] top-50 mr-[300px] ml-[150px] flex items-center">
+            <div className="absolute transform uppercase translate-y-[100%] inset-0 h-50 object-cover z-0 w-[500px] md:w-[700px] top-50 mr-[300px] md:ml-[150px] flex items-center">
                 <div
                     style={{
-                        height: "400px",
-                        width: "400px",
+                        // height: "400px",
+                        // width: "400px",
                         backgroundImage: "url('./planet.png')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
@@ -70,8 +70,9 @@ export default function HorizontalScroll() {
                         justifyContent: "center",
                         alignItems: "center",
                     }}
+                    className="w-[360px] md:w-[400px] h-[360px] md:h-[400px] "
                 >
-                    <h1 className="text-[#FDB515] font-bold absolute text-[64px] font-bold left-10 right-[-40px]">What’s New
+                    <h1 className="text-[#FDB515] font-bold absolute text-[42px] md:text-[64px] font-bold left-10 right-[-40px]">What’s New
                         <br />at Joint Clinic</h1>
                 </div>
             </div>
@@ -79,14 +80,14 @@ export default function HorizontalScroll() {
             {/* Horizontal scrollable content */}
             <div
                 ref={trackRef}
-                className="flex h-full top-[8%] left-[20%] w-max relative z-10 mt-30 items-start pl-60"
+                className="flex h-full top-[26%] md:top-[8%] md:left-[20%] w-max relative z-10 mt-30 items-start pl-60"
             >
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="w-[977px] h-[580px] rounded-[35px] border border-gray-300 border-2 mr-[70px] text-center flex flex-col items-start justify-between py-[2%] px-[1%] gap-50 pt-10 ml-4 bg-[#7099C0]">
-                        <h1 className="text-[64px] uppercase font-bold text-white">{card.title}</h1>
-                        <p className="text-[white] text-[20px] font-bold">{card.desc}</p>
+                        className="w-[326px] h-[360px] md:w-[977px] md:h-[580px] rounded-[35px] border [border-image:radial-gradient(circle_at_center,_rgba(255,255,255,1),_rgba(255,255,255,0))_1] backdrop-blur-[17px] border-2 m4-[36px] md:mr-[70px] text-center flex flex-col items-start justify-between py-[2%] px-[1%] gap-10  md:gap-50 pt-10 ml-4  bg-[rgba(255,255,255,0.4)]">
+                        <h1 className="text-[36px] md:text-[64px] uppercase font-bold text-white">{card.title}</h1>
+                        <p className="text-[white] text-[16px] md:text-[20px] font-bold">{card.desc}</p>
                     </div>
                 ))}
             </div>

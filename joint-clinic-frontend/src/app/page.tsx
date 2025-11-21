@@ -1,6 +1,5 @@
 
 import { IBM_Plex_Sans } from "next/font/google";
-import WhoWeAre from "@/components/WhoWeAre/WhoWeAre";
 import Hero from "@/components/Hero/Hero";
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import HorizontalScroll from "@/components/Horizontal/Horizontal";
@@ -26,15 +25,10 @@ export default function Home() {
       <section className=" flex justify-center items-center bg-[9fd5e2] flex-col">
         <WhoWeAre />
       </section>
-
-      <section className="chooseUs h-screen flex flex-col justify-center items-center md:mt-0 gap-8">
-        <ChooseUs />
-      </section>
-
       <section className="features_section bg-[#0d7b93] overflow-hidden py-10">
         <HorizontalScroll />
       </section>
-\      <section className="h-screen flex items-center justify-center">
+     <section className="h-screen flex items-center justify-center">
         <YourSafety />
       </section> 
       <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">

@@ -87,12 +87,13 @@ export default function WhatOurPatientsSay() {
         className="
           grid 
           grid-flow-col 
-          md:grid-rows-3 
+          grid-rows-3 
           auto-cols-[85vw] 
           sm:auto-cols-[60vw]
           md:auto-cols-[33vw]
           lg:auto-cols-[28vw]
-          gap-6 
+          gap-x-6
+          gap-y-[-10px]
           w-max 
           h-full 
           px-10 md:px-20           
@@ -106,8 +107,8 @@ export default function WhatOurPatientsSay() {
           const row = i % 3;
 
           // *** التعديل المطلوب فقط ***
-          let desktopOffset = "";
-          if (row === 1) desktopOffset = "md:-translate-x-[-300px]"; // middle row shifted LEFT ONLY
+          let Offset = "translate-x-[500px]";
+          if (row === 1) Offset = "-translate-x-[-350px]"; // middle row shifted LEFT ONLY
 
           return (
             // fixed width and height for each tistememonial card
@@ -115,14 +116,14 @@ export default function WhatOurPatientsSay() {
               key={i}
               type="section"
               className={`
-                ${desktopOffset}
+                ${Offset}
                 mx-auto 
                 p-4 sm:p-6 md:p-7 lg:p-8
                 rounded-[14px] sm:rounded-[18px] md:rounded-[20px]
-                bg-white shadow-[0px_8px_24px_rgba(0,0,0,0.08)]                
+                 shadow-[0px_8px_24px_rgba(0,0,0,0.08)]                
                 flex flex-col justify-between items-center
-                w-full transform translate-x-[500px]
-                h-[220px] h-[120px] sm:h-[140px] md:h-[160px] lg:h-[180px]                
+                w-full transform
+                h-[120px] sm:h-[140px] md:h-[160px] lg:h-[180px]                
               `}
             >
               <h1

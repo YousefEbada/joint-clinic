@@ -42,16 +42,16 @@ export default function HowWorks() {
       for (let i = 0; i < steps; i++) {
         tl.current!.to(circleRef.current, {
           rotate: "+=90",
-          duration: 2.0, // Significantly increased for slower, smoother rotation
-          ease: "power1.out", // Gentler easing for more professional feel
+          duration: 1,
+          ease: "power2.inOut",
         });
       }
 
       ScrollTrigger.create({
         trigger: wrapperRef.current,
         start: "top top",
-        end: `+=${steps * 700}vh`, 
-        scrub: 5, 
+        end: `+=350%`,
+        scrub: true,
         pin: true,
         pinSpacing: true,
         animation: tl.current,
@@ -59,8 +59,8 @@ export default function HowWorks() {
           steps > 0
             ? {
                 snapTo: 1 / steps,
-                duration: { min: 500.5, max: 1500.0 }, 
-                ease: "power1.out",
+                duration: { min: 0.6, max: 1 },
+                ease: "power2.inOut",
               }
             : undefined,
         onUpdate: (self) => {

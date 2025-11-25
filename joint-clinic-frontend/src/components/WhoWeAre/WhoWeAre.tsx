@@ -66,7 +66,7 @@ function WhoWeAre() {
             scrollTrigger: {
                 trigger: section,
                 start: "top top",
-                end: "+=20000",  // المسافة اللي تمشي فيها الأنيميشن
+                end: "+=2000",  // المسافة اللي تمشي فيها الأنيميشن
                 scrub: true,
                 pin: true,
                 // markers: true,
@@ -107,13 +107,13 @@ function WhoWeAre() {
             });
         // ظهور Members
         master
-            .from(members, { opacity: 0, y: 50, duration: 1.5 });
+            .from(members, { opacity: 0, y: 50, duration: 0.5 });
         // اخفاء Members
         master
-            .to(members, { opacity: 0, y: -50, duration: 1.5 });
+            .to(members, { opacity: 0, y: -50, duration: 0.5 });
         // ظهور Choose Us
         master
-            .from(chooseUs, { opacity: 0, y: 50, duration: 1.5 });
+            .from(chooseUs, { opacity: 0, y: 50, duration: 0.5 });
 
 
     }, []);

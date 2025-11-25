@@ -29,11 +29,7 @@ export default function Home() {
       <section className="h-screen flex flex-col justify-center items-center">
         <MeetOurTeam />
       </section>  
-      
-      {/* <section className="chooseUs h-screen flex flex-col justify-center items-center md:mt-0 gap-8">
-        <ChooseUs />
-      </section> */}
-      {/* 
+    
       <section className="features_section bg-[#0d7b93] overflow-hidden py-10">
         <HorizontalScroll />
       </section> 
@@ -46,11 +42,11 @@ export default function Home() {
       <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">
         <HowWorks />
       </section>
-      */}
-      {/* <section className="h-screen flex items-center bg-[#edf7f9] justify-center">
+     
+      <section className="h-screen flex items-center bg-[#edf7f9] justify-center">
         <Book />
-      </section> */}
-      {/* <WhatOurPatientsSay /> */}
+      </section>
+      <WhatOurPatientsSay />
         <section className="min-h-screen bg-[#edf7f9] flex items-end justify-center overflow-x-hidden">
           <Footer />
         </section>  

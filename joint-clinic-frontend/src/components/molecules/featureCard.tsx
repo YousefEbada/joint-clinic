@@ -16,7 +16,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, isActive 
     <div
       onClick={() => setActive(!active)}
       className={`
-        md:w-full md:h-[200%] h-48 w-full rounded-xl p-3 md:p-6 cursor-pointer transition-all duration-300
+        md:h-[200%] h-48 w-[300px] mx-[30px] rounded-xl p-3 md:p-6 cursor-pointer transition-all duration-300
         border border-gray-200 flex flex-col justify-around md:justify-between
         ${active ? "bg-[#d5ece3] opacity-100 blur-0" : "bg-[#d5ece3] opacity-40 blur-[1.4px]"}
       `}

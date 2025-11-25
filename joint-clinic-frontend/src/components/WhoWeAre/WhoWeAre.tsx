@@ -120,7 +120,7 @@ function WhoWeAre() {
 
 
     return (
-        <section ref={sectionRef} className="flex flex-col relative justify-center h-screen items-center">
+        <section ref={sectionRef} className="flex overflow-hidden flex-col relative justify-center h-screen items-center">
 
             <section
                 id="circle"
@@ -162,7 +162,7 @@ function WhoWeAre() {
                 </h1>
 
                 <div
-                    className="members translate-y-20 w-full m-auto grid grid-cols-3 md:grid-cols-5 mt-10 overflow-hidden transition-all"
+                    className="members translate-y-20 w-full m-auto grid grid-cols-3 md:grid-cols-5 overflow-hidden transition-all"
                 >
                     {memberinfo.map((member, index) => (
                         <div key={index} className="flex flex-col items-center mb-4">
@@ -183,7 +183,8 @@ function WhoWeAre() {
                 <h2 className={`text-[40px] md:text-[64px] mb-[50px] font-bold font-['IBM_Plex_Sans'] text-[#fff]`} >
                     Why Choose Us?
                 </h2>
-                <div className="cards mx-auto grid w-full grid-cols-2 md:grid-cols-4">
+                {/* center elements in grid */}
+                <div className="cards mx-auto grid justify-center items-center gap-4 w-full grid-cols-2 md:grid-cols-4 sm:grid-cols-2">
                     {cards.map((card, index) => {
                         return <FeatureCard key={index} title={card.title} description={card.desc} />
                     })}

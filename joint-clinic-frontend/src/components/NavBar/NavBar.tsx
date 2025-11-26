@@ -107,19 +107,19 @@ export default function NavBar() {
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="#who-we-are">
             Who We Are
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="#how-it-works">
             How it Works
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="#reviews">
             Reviews
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="#contact-us" scroll={true}>
             Contact Us
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/">
             Login
           </Link>
 

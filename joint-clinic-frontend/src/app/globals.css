@@ -15,7 +15,8 @@
   animation: fadeIn 0.25s ease-out;
 }
 
-@supports not (animation-timeline: scroll()) {
-  html { scroll-behavior: smooth; }
+/* enable smooth scrolling for in-page anchor/hash navigation */
+html {
+  scroll-behavior: smooth;
 }
 

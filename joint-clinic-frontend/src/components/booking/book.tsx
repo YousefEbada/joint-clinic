@@ -12,7 +12,7 @@ const Book = () => {
   const back = () => step > 1 && setStep(step - 1);
 
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-start bg-[#edf7f9] pb-10">
+    <div id="book" className="h-screen w-full flex flex-col items-center justify-start bg-[#edf7f9] pb-10">
 
       {/* MAIN CONTAINER */}
       <div

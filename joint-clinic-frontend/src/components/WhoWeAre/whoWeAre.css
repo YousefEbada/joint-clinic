@@ -8,11 +8,26 @@
   position: relative;
   width: 400px; /* عرض الشكل بالكامل */
   height: 120px;
-  margin: 50px auto;
+  margin: 30px auto;
   display: flex;
   justify-content: center;
+  transform: translateY(-50px);
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .indicator {
+    width: 320px; /* أصغر */
+    transform: translateY(-30px);
+  }
+
+
+  .indicator .circle {
+    width: 35px; /* تقليل حجم الدائرة */
+    height: 35px;
+  }
+}
+
 
 /* الخط الأزرق يمين ويسار */
 .indicator .line {

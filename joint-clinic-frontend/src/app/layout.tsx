@@ -1,5 +1,6 @@
 
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import { IBM_Plex_Sans } from "next/font/google";
 
 const ibmPlex = IBM_Plex_Sans({
@@ -18,6 +19,7 @@ export default function RootLayout({
         <meta name="icon" content="#" />
       </head>
       <body className="min-h-screen">
+        <SmoothScroll />
         {children}
       </body>
     </html>

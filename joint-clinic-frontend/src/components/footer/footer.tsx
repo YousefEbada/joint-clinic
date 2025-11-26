@@ -3,7 +3,7 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer
+    <footer id="contact"
       className="
         w-full lg:w-[92%]
         mx-auto 

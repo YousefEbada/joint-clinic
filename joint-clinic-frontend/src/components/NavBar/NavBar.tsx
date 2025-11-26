@@ -47,12 +47,12 @@ export default function NavBar() {
         })}
       >
         <div className="hidden md:flex flex-row gap-10 text-lg items-center">
-          <Link href="/">Who We Are</Link>
-          <Link href="/">How it Works</Link>
-          <Link href="/">Reviews</Link>
-          <Link href="/">Contact Us</Link>
+          <Link href="/#who-we-are">Who We Are</Link>
+          <Link href="/#how-it-works">How it Works</Link>
+          <Link href="/#reviews">Reviews</Link>
+          <Link href="/#contact">Contact Us</Link>
           <span className="opacity-50">|</span>
-          <Link href="/">Login</Link>
+          <Link href="/sign-in">Login</Link>
         </div>
 
         <div className="flex items-center gap-4 md:hidden">
@@ -107,24 +107,24 @@ export default function NavBar() {
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/#who-we-are" onClick={toggleMenu}>
             Who We Are
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/#how-it-works" onClick={toggleMenu}>
             How it Works
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/#reviews" onClick={toggleMenu}>
             Reviews
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/#contact" onClick={toggleMenu}>
             Contact Us
           </Link>
-          <Link href="/" onClick={toggleMenu}>
+          <Link href="/sign-in" onClick={toggleMenu}>
             Login
           </Link>
 
           <div className="pt-4">
-            <BookNowButton />
+            <BookNowButton onAfterNavigate={toggleMenu} />
           </div>
         </div>
       </div>

@@ -93,7 +93,7 @@ export default function HowWorks() {
   };
 
   return (
-    <section
+    <section id="how-it-works"
       ref={wrapperRef}
       className="
         relative flex flex-col items-center justify-start 

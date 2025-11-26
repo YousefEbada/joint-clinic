@@ -51,7 +51,7 @@ export default function WhatOurPatientsSay() {
   ];
 
   return (
-    <section
+    <section id="reviews"
       ref={wrapperRef}
       className="relative w-full h-screen overflow-hidden bg-[#cae8ef] flex items-center justify-start"
     >

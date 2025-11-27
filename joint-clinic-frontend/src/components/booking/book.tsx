@@ -18,7 +18,7 @@ const Book = () => {
       <div
         className="
         w-[95%] max-w-[1700px]
-        h-[80%] md:h-[95%]
+        h-full md:h-[95%]
         bg-[#fff] 
         shadow-[0px_25px_60px_rgba(30,85,152,0.15)]
         rounded-[20px] sm:rounded-[32px] md:rounded-[48px]
@@ -30,7 +30,7 @@ const Book = () => {
         {/* TITLE */}
         <h2
           className="
-          text-[9vw] sm:text-[10vw] md:text-[120px]
+          text-[9vw] text-[27px] sm:text-[25px] xsm:text-[20px] md:text-[120px]
           font-bold 
           bg-gradient-to-b from-[#0D294D] to-[#1E5598]
           bg-clip-text text-transparent 
@@ -66,7 +66,7 @@ const Book = () => {
             bg-white
             mt-2 sm:mt-4 md:mt-10
             rounded-[18px] sm:rounded-[22px] md:rounded-[32px]
-            p-3 sm:p-5 md:p-10
+            p-0 sm:p-5 md:p-10
             flex flex-col justify-between
             min-h-[300px] sm:min-h-[350px] md:min-h-[400px]
             ${step === 3 ? "" : "shadow-[0px_20px_60px_rgba(30,85,152,0.15)]"}

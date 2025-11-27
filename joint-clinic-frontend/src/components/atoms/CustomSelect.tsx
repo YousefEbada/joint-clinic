@@ -51,7 +51,7 @@ export default function CustomSelect({
       <button
         onClick={() => setOpen(!open)}
         className="
-          bg-white 
+          bg-[#fff] 
           rounded-[30px] sm:rounded-[40px] md:rounded-[50px]
           text-[#1e5598]
           w-full
@@ -66,9 +66,9 @@ export default function CustomSelect({
           font-medium
           relative
 
-          h-[48px] sm:h-[55px] md:h-[85px]
+          h-[45px] sm:h-[45px] md:h-[85px]
         "
-        style={{ height: finalHeight }}
+        
       >
         <span className="block text-center w-full pointer-events-none">
           {selected}
@@ -95,7 +95,7 @@ export default function CustomSelect({
           className="
             absolute left-0 top-[105%]
             w-full
-            bg-white
+            bg-[#fff]
             rounded-[20px] sm:rounded-[24px] md:rounded-[32px]
             shadow-[0px_12px_45px_rgba(30,85,152,0.18)]
             overflow-hidden

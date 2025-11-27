@@ -129,9 +129,8 @@ function WhoWeAre() {
       }); // اختفاء indicator
     // ظهور Members
     master.from(members, { opacity: 0, y: 50, duration: 0.5 });
-    // اخفاء Members
-    master.to(members, { opacity: 0, y: -50, duration: 0.5 });
-    master.to(indicator, { opacity: 0, y: -50, duration: 0.5 });
+    // اخفاء Members و indicator في نفس الوقت
+    master.to([members, indicator], { opacity: 0, y: -50, duration: 0.5 });
     // ظهور Choose Us
     master.from(chooseUs, { opacity: 0, y: 50, duration: 0.5 });
   }, []);

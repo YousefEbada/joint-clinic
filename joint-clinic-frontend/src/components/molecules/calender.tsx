@@ -14,7 +14,7 @@ const Calendar = () => {
         rounded-[16px] sm:rounded-[20px] md:rounded-[24px]
         shadow-[0px_15px_50px_rgba(30,85,152,0.15)]
         w-full
-        max-w-[320px] sm:max-w-[350px] md:max-w-[380px]
+        max-w-[260px] sm:max-w-[200px] md:max-w-[380px]
       "
     >
       {/* Month Header */}

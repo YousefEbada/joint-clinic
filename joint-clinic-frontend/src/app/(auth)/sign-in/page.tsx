@@ -276,7 +276,7 @@ const Page = () => {
                       onClick={() => setStep(step + 1)}
                       className="w-[220px] h-[60px] cursor-pointer py-3 bg-[#ea392f] text-white rounded-full
                              font-semibold mt-4 hover:bg-transparent hover:text-[#ea392f]
-                             hover:border-[#ea392f] border-[4px] transition-all duration-300">
+                             hover:border-[#ea392f] border-[4px] border-[#ea392f] transition-all duration-300">
                       Continue
                     </button>
                   )}

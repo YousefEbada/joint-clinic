@@ -4,8 +4,8 @@ import React from "react";
 interface FeatureCardProps {
   title: string;
   description: string;
-  isActive?: boolean;       // يتحكم فيه الـ parent (GSAP + React)
-  className?: string;       // لو حابب تزود ستايل من بره
+  isActive?: boolean;
+  className?: string;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -18,7 +18,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     <div
       className={`
         feature-card
-        md:h-[200%] h-48 
+        md:h-[400px] h-48 
         md:w-[300px] w-[150px] 
         rounded-xl p-3 md:p-6 
         cursor-default
@@ -33,12 +33,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         ${className}
       `}
     >
-      <h2 className="md:text-xl text-sm font-semibold w-full text-gray-900">
-        {title}
+      <h2 className="md:text-[38px] capitalize text-sm text-left font-bold w-full text-[#0a1c32]">
+        {title.toLowerCase()}
       </h2>
 
-      <p className="md:text-sm text-xs text-gray-700 mt-3">
-        {description}
+      <p className="md:text-sm capitalize text-xs text-left text-[#0a1c32] mt-3">
+        {description.toLowerCase()}
       </p>
     </div>
   );

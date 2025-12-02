@@ -5,10 +5,10 @@
   transition: border 0.3s ease;
 }
 
-    
+/* Indicator */
 .indicator {
   position: relative;
-  width: 400px; /* عرض الشكل بالكامل */
+  width: 400px;
   height: 120px;
   margin: 30px auto;
   display: flex;
@@ -19,29 +19,26 @@
 
 @media (max-width: 768px) {
   .indicator {
-    width: 320px; /* أصغر */
+    width: 320px;
     transform: translateY(-30px);
   }
   .indicator .circle {
-    width: 35px; /* تقليل حجم الدائرة */
+    width: 35px;
     height: 35px;
     opacity: 0;
   }
   .circleMorph {
-    width: 35px; /* تقليل حجم الدائرة */
+    width: 35px;
     height: 35px;
   }
 }
 
-
-/* الخط الأزرق يمين ويسار */
 .indicator .line {
   width: 140px;
   height: 3px;
   background: #0d294d;
 }
 
-/* الدائرة */
 .indicator .circle {
   width: 45px;
   height: 45px;
@@ -52,7 +49,6 @@
   opacity: 0;
 }
 
-/* النقطتين الطرفيين */
 .indicator .dot {
   width: 20px;
   height: 20px;
@@ -68,13 +64,26 @@
   margin-left: 0px;
 }
 
-/* الخط الأحمر النازل */
+/* الخط القديم */
 .indicator .red-line {
   width: 3px;
   height: 70px;
   background: #e41d1d;
   position: absolute;
-  top: 80px; /* أسفل الدائرة مباشرة */
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* الخط الجديد المتحرك */
+.moving-red-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: #e41d1d;
+  transform: translateY(-50%);
+  z-index: 0;
+  transition: all 0.35s ease-in-out;
 }

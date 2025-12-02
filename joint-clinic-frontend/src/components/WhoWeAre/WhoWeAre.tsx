@@ -66,7 +66,24 @@ function WhoWeAre() {
   const redLineRef = useRef<HTMLDivElement>(null);
   const leftLineRef = useRef<HTMLDivElement>(null);
   const rightLineRef = useRef<HTMLDivElement>(null);
+  const redLineMovingRef = useRef<HTMLDivElement>(null);
   const [activeCardIndex, setActiveCardIndex] = React.useState(0);
+
+  const getRedLineWidth = (index: number) => {
+    const cardWidth = 300;
+    const gap = 60;
+    const totalCardsWidth = (cardWidth * 4) + (gap * 3);
+    const leftPadding = (window.innerWidth - totalCardsWidth) / 2;
+
+    if (index === 0) {
+      return leftPadding + (cardWidth / 2);
+    }
+    if (index === 3) {
+      return window.innerWidth;
+    }
+
+    return leftPadding + index * (cardWidth + gap) + (cardWidth / 2);
+  };
 
   React.useEffect(() => {
     const section = sectionRef.current;
@@ -82,6 +99,7 @@ function WhoWeAre() {
     const redLine = redLineRef.current;
     const leftLine = leftLineRef.current;
     const rightLine = rightLineRef.current;
+    const redLineMoving = redLineMovingRef.current;
 
     if (
       !section ||
@@ -96,7 +114,8 @@ function WhoWeAre() {
       !rightDot ||
       !redLine ||
       !leftLine ||
-      !rightLine
+      !rightLine ||
+      !redLineMoving
     )
       return;
 
@@ -167,24 +186,32 @@ function WhoWeAre() {
 
     master.from(chooseUs, { opacity: 0, y: 50, duration: 0.5 });
 
-    // ---- تفعيل الكروت بناءً على ال Timeline ----
-    //
-    // ───────────────────────────────────────────────
-    // MASTER TIMELINE — كل شيء يحدث بالتتابع
-    // ───────────────────────────────────────────────
-    //
-
     const cardsCount = cards.length;
+
     master.to({}, {
       duration: 2,
       onUpdate: function () {
         const progress = this.progress();
-        const index = Math.floor(progress * cardsCount);
-        setActiveCardIndex(Math.min(index, cardsCount - 1));
+        const index = Math.min(Math.floor(progress * cardsCount), cardsCount - 1);
+
+        // 1️⃣ حرّك الخط أولاً
+        const redWidth = getRedLineWidth(index);
+        gsap.to(redLineMovingRef.current, {
+          width: redWidth,
+          duration: 0.4,
+          ease: "power2.out"
+        });
+
+        // 2️⃣ وبعدها بفريم React يغير active
+        setTimeout(() => {
+          setActiveCardIndex(index);
+        }, 0); // ممكن تزود delay لو عايز فرق
       },
     });
 
   }, []);
+
+
 
   return (
     <section id="who-we-are"
@@ -257,29 +284,34 @@ function WhoWeAre() {
         </div>
       </section>
       <section
-        className="chooseUs text-center absolute bottom-[70px]"
+        className="chooseUs text-center absolute w-full flex flex-col justify-center items-center bottom-[70px]"
         ref={chooseUsRef}
       >
         <h2
-          className={`text-[40px] md:text-[64px] mb-[5px] md:mb-[30px] transform md:translate-y-[-80px] font-bold font-['IBM_Plex_Sans'] text-[#fff]`}
+          className={`text-[40px] md:text-[64px] mb-[5px] md:mb-[30px] translate-y-[-100%] md:translate-y-[-200%] font-bold font-['IBM_Plex_Sans'] text-[#fff]`}
         >
           Why Choose Us?
         </h2>
-        {/* center elements in grid */}
-        <div className="cards mx-auto grid justify-center items-center gap-4 w-full grid-cols-2 md:grid-cols-4 sm:grid-cols-2">
-          {cards.map((card, index) => {
-            return (
+
+        {/* الخط الأحمر المتحرك */}
+        <div ref={redLineMovingRef} className="moving-red-line"></div>
+        <div className="flex flex-row justify-center relative">
+
+
+          {/* الكروت */}
+          <div className="cards mx-auto grid md:translate-y-[-20%] justify-center items-center gap-4 md:gap-[60px] w-full grid-cols-2 md:grid-cols-4 sm:grid-cols-2">
+            {cards.map((card, index) => (
               <FeatureCard
                 key={index}
                 title={card.title}
                 description={card.desc}
-                isActive={activeCardIndex >= index}   // 👈 هنا
+                isActive={activeCardIndex >= index}
               />
-            );
-          })}
+            ))}
+          </div>
         </div>
-
       </section>
+
     </section >
   );
 }

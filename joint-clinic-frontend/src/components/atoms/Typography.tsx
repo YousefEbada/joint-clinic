@@ -20,6 +20,7 @@ export interface TypographyProps {
     text: React.ReactNode;
     variant: TypographyVariant;
     className?: string;
+    style?: React.CSSProperties;   // ← ← ←  هنا الحل
 }
 
 const typographyConfig: Record<
@@ -64,11 +65,15 @@ const Typography: React.FC<TypographyProps> = ({
     text,
     variant,
     className = "",
+    style, // ← استقبال الـ style
 }) => {
     const { tag: Tag, className: variantClass } = typographyConfig[variant];
 
     return (
-        <Tag className={`${ibm.className} ${variantClass} leading-tight ${className}`}>
+        <Tag
+            className={`${ibm.className} ${variantClass} leading-tight ${className}`}
+            style={style}  // ← تطبيق الـ style
+        >
             {text}
         </Tag>
     );

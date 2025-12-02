@@ -143,9 +143,9 @@ const Page = () => {
                       animate="visible"
                       exit="exit"
                       variants={pageAnim}
-                      className="page3 flex flex-col items-center justify-center"
+                      className="page3 flex flex-col md:flex-row flex-wrap items-center justify-center"
                     >
-                      <h2 className="md:text-[42px] text-[25px] font-bold bg-gradient-to-b from-[#0D294D] to-[#1E5598]
+                      <h2 className="md:text-[42px] text-[25px] md:w-[80%] w-[100%] font-bold bg-gradient-to-b from-[#0D294D] to-[#1E5598]
                                 bg-clip-text text-transparent text-center">
                         Personal Information,
                       </h2>

@@ -32,16 +32,10 @@ export default function Home() {
       <section className="features_section bg-[#0d7b93] overflow-hidden py-10">
         <HorizontalScroll />
       </section> 
-     
-      <section className="h-screen flex items-center justify-center">
-      </section>
-     <section className="h-screen flex items-center justify-center">
+        <HowWorks />    
+        <section className="h-screen flex items-center justify-center">
         <YourSafety />
-      </section> 
-      <section className=" pb-10 flex items-center bg-[#ebf6f8] justify-center">
-        <HowWorks />
-      </section>
-     
+      </section>  
       <section className="h-screen flex items-center bg-[#edf7f9] justify-center" id="contact-us">
         <Book />
       </section>

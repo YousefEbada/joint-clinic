@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import DashBoardHeader from "@/components/molecules/DashBoardHeader";
 import BookingContent from "@/components/booking/BookingContent";
@@ -14,7 +14,9 @@ const BookingPage = () => {
                 </Link>
             </DashBoardHeader>
             <main className="w-full h-full flex flex-col gap-6 p-4 md:p-8 overflow-y-auto custom-scrollbar">
-                <BookingContent />
+                <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading...</div>}>
+                    <BookingContent />
+                </Suspense>
             </main>
         </>
     );

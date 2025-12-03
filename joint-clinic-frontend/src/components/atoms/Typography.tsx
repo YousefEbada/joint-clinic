@@ -1,11 +1,26 @@
 import React from "react";
 import { IBM_Plex_Sans } from "next/font/google";
+import React from "react";
+import { IBM_Plex_Sans } from "next/font/google";
 
 const ibm = IBM_Plex_Sans({
     subsets: ["latin"],
     weight: ["300", "400", "500", "600", "700"],
 });
+const ibm = IBM_Plex_Sans({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+});
 
+export type TypographyVariant =
+    | "display1"
+    | "display2"
+    | "heading1"
+    | "heading2"
+    | "subheader"
+    | "bodyBold"
+    | "bodyRegular"
+    | "bodySmall";
 export type TypographyVariant =
     | "display1"
     | "display2"

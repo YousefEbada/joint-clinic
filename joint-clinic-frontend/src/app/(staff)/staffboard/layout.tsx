@@ -8,17 +8,17 @@ import Clients from "@/components/icons/clients";
 import Report from "@/components/icons/Report";
 import Support from "@/components/icons/Support";
 
-export default function PatientLayout({
+export default function StaffLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     const navItems = [
-        { href: "/patientboard/main", icon: Profile, title: "Dashboard" },
-        { href: "/patientboard/booking", icon: Calendar, title: "Booking" },
-        { href: "/patientboard/clients", icon: Clients, title: "Clients" },
-        { href: "/patientboard/reports", icon: Report, title: "Medical Reports" },
-        { href: "/patientboard/support", icon: Support, title: "Support" },
+        { href: "/staffboard/main", icon: Profile, title: "Dashboard" },
+        { href: "/staffboard/booking", icon: Calendar, title: "Booking" },
+        { href: "/staffboard/clients", icon: Clients, title: "Clients" },
+        { href: "/staffboard/reports", icon: Report, title: "Medical Reports" },        
+        { href: "/staffboard/support", icon: Support, title: "Support" },
     ];
     return (
         <section
@@ -27,7 +27,7 @@ export default function PatientLayout({
                 background: color.primary
             }}
         >
-            <SideBar navItems={navItems} />
+            <SideBar navItems={navItems}/>
             <CorneredBoxes type="shadowBox" className="relative w-full h-[calc(100vh-140px)] md:h-[88.2vh] p-6 sm:p-8 md:p-12 md:pl-28">
                 {children}
             </CorneredBoxes>

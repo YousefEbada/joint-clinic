@@ -14,7 +14,7 @@ const BookingsPage = () => {
             </DashBoardHeader>
             <main className="w-full h-full flex flex-col gap-6 p-4 md:p-8 overflow-y-auto custom-scrollbar">
                 <Typography text="My Bookings" variant="heading1" className="text-[#0D294D]" />
-                {/* Bookings content will go here */}
+                
             </main>
         </>
     )

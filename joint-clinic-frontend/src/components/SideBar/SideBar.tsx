@@ -1,27 +1,27 @@
 "use client";
 import { useState } from "react";
-import Profile from "@components/icons/Profile";
 import Logo from "@components/icons/Logo";
-import Calendar from "@components/icons/Calendar";
-import Exercise from "@components/icons/Exercise";
-import Report from "@components/icons/Report";
-import Support from "@components/icons/Support";
-import Faqs from "@components/icons/Faqs";
-import { color } from "@/lib/constants/colors";
 import clsx from "clsx";
 import DashBoardLink from "@/components/SideBar/DashBoardLink";
+import { color } from "@/lib/constants/colors";
 
-const SideBar = () => {
+interface NavItem {
+    href: string;
+    icon: React.ComponentType<{
+        fill: string;
+        className?: string;
+        style?: React.CSSProperties;
+    }>;
+    title: string;
+}
+
+interface SideBarProps {
+    navItems: NavItem[];
+}
+
+const SideBar = ({ navItems }: SideBarProps) => {
+
     const [isHovered, setHovered] = useState(false);
-
-    const navItems = [
-        { href: "/dashboard/main", icon: Profile, title: "Dashboard" },
-        { href: "/dashboard/booking", icon: Calendar, title: "Booking" },
-        { href: "/dashboard/exercises", icon: Exercise, title: "Exercises" },
-        { href: "/dashboard/reports", icon: Report, title: "Medical Reports" },
-        { href: "/dashboard/faqs", icon: Faqs, title: "FAQs" },
-        { href: "/dashboard/support", icon: Support, title: "Support" },
-    ];
 
     return (
         <aside
@@ -38,42 +38,40 @@ const SideBar = () => {
                 "md:absolute md:flex md:flex-col md:items-start md:justify-between",
                 "md:top-[110px] md:left-[48px] md:h-[75vh]",
                 "md:rounded-[48px] md:py-[31px] md:px-[32px] md:gap-[10px]",
-                "md:overflow-hidden", // Ensure content doesn't overflow during transition
+                "md:overflow-hidden",
 
-                // Desktop Width Animation (Fit Text)
+                // Width Animation
                 "md:min-w-[100px]",
                 isHovered ? "md:max-w-[300px]" : "md:max-w-[100px]"
             )}
         >
-            {/* Logo - Hidden on Mobile */}
+            {/* Logo (Desktop only) */}
             <div
                 className={clsx(
                     "hidden md:block transition-all duration-500 ease-in-out w-full",
                     isHovered
-                        ? "self-end pr-[4px] sm:pr-[6px] md:pr-[8px] pt-[4px]"
+                        ? "self-end pr-[8px] pt-[4px]"
                         : "self-center"
                 )}
             >
-                <div className={clsx("flex", isHovered ? "justify-end" : "justify-center")}>
+                <div
+                    className={clsx("flex", isHovered ? "justify-end" : "justify-center")}
+                >
                     <Logo
                         fill={color.accent}
-                        style={{
-                            transition: "width 0.4s ease-in-out",
-                        }}
+                        style={{ transition: "width 0.4s ease-in-out" }}
                         className="w-[40px] sm:w-[60px] md:w-[70px]"
                     />
                 </div>
             </div>
 
-            {/* Links Container */}
+            {/* Navigation Links */}
             <div
                 className={clsx(
                     "flex w-full transition-all duration-500 ease-in-out",
-                    // Mobile: Row, centered
-                    "flex-row justify-around items-center h-full gap-0",
-                    // Desktop: Col
+                    "flex-row justify-around items-center h-full",
                     "md:flex-col md:justify-center md:h-[75%] md:gap-[16px] xl:gap-[20px] 2xl:gap-[24px]",
-                    "md:items-start" // Always align start for stability
+                    "md:items-start"
                 )}
             >
                 {navItems.map((item, i) => (

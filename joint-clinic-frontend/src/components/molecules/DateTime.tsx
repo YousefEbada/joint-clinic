@@ -27,6 +27,7 @@ const DateTime = () => {
         <Typography
           text={formattedDate}
           variant='bodyRegular'
+          gradient={true}
           style={{}}
         />
     )

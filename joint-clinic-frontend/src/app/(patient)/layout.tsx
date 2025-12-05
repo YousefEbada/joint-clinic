@@ -1,7 +1,7 @@
 import React from "react";
 import { color } from "@/lib/constants/colors";
 import SideBar from "@/components/organisms/SideBar/SideBar";
-import CorneredBoxes from "@/components/atoms/CorneredBoxes";
+import DashboardContentWrapper from "@/components/templates/DashboardContentWrapper";
 import Profile from "@/components/atoms/icons/Profile";
 import Calendar from "@/components/atoms/icons/Calendar";
 import Report from "@/components/atoms/icons/Report";
@@ -24,15 +24,15 @@ export default function PatientLayout({
     ];
     return (
         <section
-            className="min-h-screen min-w-screen p-4 sm:p-8 md:p-12 md:pl-16 pb-24 md:pb-12"
+            className="min-h-screen w-full p-4 sm:p-8 md:p-12 md:pl-16 pb-24 md:pb-12"
             style={{
                 background: color.primary
             }}
         >
             <SideBar navItems={navItems} />
-            <CorneredBoxes type="shadowBox" className="relative w-full h-[calc(100vh-140px)] md:h-[88.2vh] p-6 sm:p-8 md:p-12 md:pl-28">
+            <DashboardContentWrapper>
                 {children}
-            </CorneredBoxes>
+            </DashboardContentWrapper>
 
         </section>
     );

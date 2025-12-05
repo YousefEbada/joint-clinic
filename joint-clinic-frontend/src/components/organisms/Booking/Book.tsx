@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import CustomSelect from "@/components/atoms/CustomSelect";
 import Calendar from "@/components/molecules/Calendar";
-import Button from "@/components/atoms/Button";
+import ActionButton from "@/components/atoms/ActionButton";
 
 const Book = () => {
   const [step, setStep] = useState(1);
@@ -91,7 +91,7 @@ const Book = () => {
                 />
               </div>
 
-              <Button text="Next" variant="primary" onClick={next} />
+              <ActionButton text="Next" variant="solid" onClick={next} />
             </div>
           )}
 
@@ -121,7 +121,7 @@ const Book = () => {
                 className="md:!w-[600px]"
               />
 
-              <Button text="Next" variant="primary" onClick={next} />
+              <ActionButton text="Next" variant="solid" onClick={next} />
             </div>
           )}
 
@@ -180,7 +180,7 @@ const Book = () => {
                   </p>
 
                   <div className="mt-3 flex justify-center lg:justify-start">
-                    <Button text="Confirm" variant="primary" />
+                    <ActionButton text="Confirm" variant="solid" />
                   </div>
                 </div>
 

@@ -9,10 +9,9 @@ const Page = () => {
   return (
     <>
       <DashBoardHeader therapyName={data.therapyName} nav={false} />
-      <main className="w-full h-full flex flex-col gap-6 p-4 md:p-8 overflow-y-auto custom-scrollbar">
-        {/* Welcome Section */}
+      <main className="w-full h-full flex flex-col gap-6 overflow-y-auto custom-scrollbar">
         <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-baseline">
-          <Typography text="Welcome Back," variant="heading1" style={{ color: color.secondary }} />
+          <Typography text="Welcome Back," variant="heading1" gradient={true} />
           <Typography text={data.patientName} variant="heading1" style={{ color: color.primary }} />
         </div>
 

@@ -20,7 +20,8 @@ export interface TypographyProps {
     text: React.ReactNode;
     variant: TypographyVariant;
     className?: string;
-    style?: React.CSSProperties;   // ← ← ←  هنا الحل
+    style?: React.CSSProperties;
+    gradient?: boolean;
 }
 
 const typographyConfig: Record<
@@ -65,14 +66,19 @@ const Typography: React.FC<TypographyProps> = ({
     text,
     variant,
     className = "",
-    style, // ← استقبال الـ style
+    style,
+    gradient = false,
 }) => {
     const { tag: Tag, className: variantClass } = typographyConfig[variant];
 
+    const gradientClass = gradient
+        ? "bg-gradient-to-b from-[#0D294D] to-[#1E5598] bg-clip-text text-transparent"
+        : "";
+
     return (
         <Tag
-            className={`${ibm.className} ${variantClass} leading-tight ${className}`}
-            style={style}  // ← تطبيق الـ style
+            className={`${ibm.className} ${variantClass} ${gradientClass} leading-tight ${className}`}
+            style={style}
         >
             {text}
         </Tag>

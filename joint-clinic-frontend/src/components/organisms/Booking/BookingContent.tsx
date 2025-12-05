@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import dayjs from "dayjs";
 import Calendar from "@/components/molecules/Calendar";
 import CustomSelect from "@/components/atoms/CustomSelect";
-import Button from "@/components/atoms/Button";
+import ActionButton from "@/components/atoms/ActionButton";
 import Typography from "@/components/atoms/Typography";
 import Divider from "@/components/atoms/Divider";
 
@@ -22,7 +22,7 @@ const BookingContent = () => {
 
             {/* Left Column */}
             <div className="flex flex-col gap-6 flex-1 items-center lg:items-start">
-                <Typography text="Select the date" variant="heading2" className="text-[#0D294D] text-center lg:text-left" />
+                <Typography text="Select the date" variant="heading2" gradient={true} className=" text-center lg:text-left" />
 
                 <div className="w-full flex justify-center lg:justify-start">
                     <Calendar />
@@ -50,7 +50,7 @@ const BookingContent = () => {
 
                 {/* Time Slot */}
                 <div className="w-full max-w-[500px]">
-                    <Typography text="Choose your time slot" variant="heading2" className="text-[#0D294D] mb-4 text-center lg:text-left" />
+                    <Typography text="Choose your time slot" variant="heading2" gradient={true} className="mb-4 text-center lg:text-left" />
                     <CustomSelect
                         items={["8:00 Am", "9:00 Am", "10:00 Am", "11:00 Am", "12:00 Pm"]}
                         onChange={setSelectedTime}
@@ -62,17 +62,17 @@ const BookingContent = () => {
 
                 {/* Confirm Booking */}
                 <div className="w-full max-w-[500px] flex flex-col gap-4">
-                    <Typography text="Confirm your booking" variant="heading2" className="text-[#0D294D] text-center lg:text-left" />
+                    <Typography text="Confirm your booking" variant="heading2" gradient={true} className="text-center lg:text-left" />
 
                     <div className="text-center lg:text-left">
-                        <span className="text-[#0D294D] font-bold text-[16px] md:text-[18px]">Your Session will be on: </span>
-                        <span className="text-[#167c4f] font-bold text-[16px] md:text-[18px]">{selectedDate} at {selectedTime}</span>
+                        <span className="font-bold text-[16px] md:text-[18px]">Your Session will be on: </span>
+                        <span className="font-bold text-[16px] md:text-[18px]">{selectedDate} at {selectedTime}</span>
                     </div>
 
                     <Typography text="Please note that the bookings can be rescheduled or cancelled at least 24 hours before the appointment" variant="bodyRegular" className="text-gray-400 text-center lg:text-left text-[14px]" />
 
                     <div className="flex justify-center lg:justify-start mt-4">
-                        <Button text="Confirm" variant="primary" />
+                        <ActionButton text="Confirm" variant="solid" />
                     </div>
                 </div>
 

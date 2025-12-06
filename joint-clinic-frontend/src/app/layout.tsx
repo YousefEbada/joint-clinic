@@ -1,6 +1,7 @@
 
+import SmoothScroll from "@/components/molecules/SmoothScroll/SmoothScroll";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
+
 import { IBM_Plex_Sans } from "next/font/google";
 
 const ibmPlex = IBM_Plex_Sans({

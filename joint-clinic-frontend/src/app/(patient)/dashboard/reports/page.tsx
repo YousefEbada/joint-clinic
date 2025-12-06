@@ -55,7 +55,7 @@ const ReportsPage = () => {
         {activeTab === "view" ? (
           <>
             <Typography text="Reports" variant="heading2" className="text-[#0D294D] font-bold text-3xl mb-2" />
-            <ReportList reports={reports} />
+            <ReportList reports={reports} type='staff' />
           </>
         ) : (
           <ReportsHistory />

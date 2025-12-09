@@ -10,7 +10,7 @@ interface BackToProps {
 
 const BackTo = ({ href, text }: BackToProps) => {
   return (
-    <Link href={href} className="flex flex-row items-center justify-center gap-2 group">
+    <Link href={href} className="flex flex-row items-center justify-center gap-2 group w-fit">
       <Arrow direction="left" fill="#1e5598" className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
       <Typography text={`Back to ${text}`} variant='bodyRegular' className="text-[#1e5598] hover:underline" />
     </Link>

@@ -12,7 +12,11 @@ const Book = () => {
   };
 
   return (
-    <div id="book" className="h-screen w-full flex flex-col items-center justify-start bg-[#edf7f9] pb-10">
+    <div id="book" className="h-[90vh] sm:h-screen w-full flex flex-col items-center justify-center md:justify-start pb-10"
+      style={{
+        background: `linear-gradient(to bottom, #edf7fa, #cfeaf1)`
+      }}
+    >
 
       {/* MAIN CONTAINER */}
       {/* MAIN CONTAINER */}
@@ -25,6 +29,7 @@ const Book = () => {
         rounded-[20px] sm:rounded-[32px] md:rounded-[48px]
         flex flex-col items-center my-auto
         py-2 md:py-10
+        justify-center md:justify-start
       "
       >
 
@@ -37,6 +42,9 @@ const Book = () => {
           bg-clip-text text-transparent 
           text-center leading-tight
         "
+          style={step > 1 && typeof window !== "undefined" && window.innerWidth < 640 ? {
+            display: "none"
+          } : undefined}
         >
           Book Your Session Now
         </h2>
@@ -63,7 +71,7 @@ const Book = () => {
         <div
           className={`
             relative 
-            w-[92%] md:w-[80%]
+            ${typeof window !== "undefined" && window.innerWidth < 640 ? `w-[92%]
             bg-white
             mt-2 sm:mt-4 md:mt-10
             rounded-[18px] sm:rounded-[22px] md:rounded-[32px]
@@ -71,6 +79,7 @@ const Book = () => {
             flex flex-col justify-between
             min-h-[300px] sm:min-h-[350px] md:min-h-[400px]
             ${step === 3 ? "" : "shadow-[0px_20px_60px_rgba(30,85,152,0.15)]"}
+            ` : ""}
           `}
         >
 

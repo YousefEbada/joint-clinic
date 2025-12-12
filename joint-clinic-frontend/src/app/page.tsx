@@ -23,24 +23,12 @@ export default function Home() {
         <Hero font={ibmPlex} />
       </div>
       <WhoWeAre />
-      <section className="features_section overflow-hidden">
-        <HorizontalScroll />
-      </section>
+      <HorizontalScroll />
       <HowWorks />
-      <section className="h-screen flex items-center bg-[#edf7f9] justify-center" id="contact-us">
-        <Book />
-      </section>
+      <Book />
       <WhatOurPatientsSay />
-      <section className="h-screen flex items-center justify-center">
-        <YourSafety />
-      </section>
-      <section className="min-h-screen flex items-end justify-center overflow-x-hidden"
-        style={{ backgroundColor: color.primary }}
-      >
-        <Footer />
-      </section>
-
-      {/* <Typography variant="subheader" className="text-center mt-4" text="Book Now" /> */}
+      <YourSafety />
+      <Footer />
     </div>
   );
 }

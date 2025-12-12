@@ -17,8 +17,6 @@ const Hero = ({ font }: HeroProps) => {
           w-[98%] h-[96%] 
           flex flex-col justify-center items-center
           overflow-hidden
-
-          /* BACKGROUND GIF */
           bg-[url('/Project2.gif')]
           bg-cover bg-center
         "

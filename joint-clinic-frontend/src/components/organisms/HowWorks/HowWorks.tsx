@@ -158,19 +158,20 @@ export default function HowWorks() {
   };
 
   return (
-    <section className="min-h-screen flex items-end bg-gradient-to-b from-[#1E5598] via-[#1E5598] via-[#1E5598] to-[#1E5598] justify-center" id="how-it-works" ref={wrapperRef}>
+    <section className="min-h-screen flex items-end justify-center" id="how-it-works" ref={wrapperRef}>
       <section
         ref={sectionRef}
         id="animated-section"
         className="
-        relative flex flex-col items-center justify-start 
-        bg-[#f8fcfd] 
+        relative flex flex-col items-center justify-end sm:justify-start 
         overflow-hidden
         pt-16 md:pt-24
-        pb-24 md:pb-32
-        shadow-xl
+        pb-12 sm:pb-24 md:pb-32
         w-[33vw] h-[80vh] rounded-[40px]
       "
+      style={{
+        background: `linear-gradient(to bottom, #ffffff, #edf7fa)`
+      }}
       >
         {/* Circle */}
         <div

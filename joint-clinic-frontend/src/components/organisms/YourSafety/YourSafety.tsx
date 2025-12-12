@@ -1,10 +1,15 @@
 import Image from "next/image";
 import React from "react";
 import "./YourSafety.css";
+import { color } from "@/lib/constants/colors";
 
 const YourSafety = () => {
   return (
-    <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 py-12">
+    <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 py-12"
+      style={{
+          background: `linear-gradient(to bottom, #cfeaf1, ${color.primary})`
+        }}
+    >
 
       {/* FLEX CONTAINER */}
       <div className="mx-auto w-full flex flex-col md:flex-row items-center md:items-start max-w-[1400px] gap-10 md:gap-16">

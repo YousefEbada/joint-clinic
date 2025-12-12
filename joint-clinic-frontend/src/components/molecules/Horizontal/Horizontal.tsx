@@ -67,7 +67,7 @@ export default function HorizontalScroll() {
             }}
         >
             {/* Background image */}
-            <div className="absolute transform uppercase translate-y-[100%] inset-0 h-50 object-cover z-0 w-[500px] md:w-[700px] top-50 mr-[300px] md:ml-[150px] flex items-center">
+            <div className="absolute transform uppercase translate-y-full inset-0 h-20 sm:h-30 object-cover z-0 w-[500px] md:w-[700px] top-50 mr-[300px] md:ml-[150px] flex items-center">
                 <div
                     style={{
                         // height: "400px",

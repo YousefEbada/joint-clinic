@@ -163,11 +163,11 @@ export default function HowWorks() {
         ref={sectionRef}
         id="animated-section"
         className="
-        relative flex flex-col items-center justify-start 
+        relative flex flex-col items-center justify-end sm:justify-start 
         bg-[#f8fcfd] 
         overflow-hidden
         pt-16 md:pt-24
-        pb-24 md:pb-32
+        pb-12 sm:pb-24 md:pb-32
         shadow-xl
         w-[33vw] h-[80vh] rounded-[40px]
       "

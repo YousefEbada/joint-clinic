@@ -59,7 +59,7 @@ export default function WhatOurPatientsSay() {
       <div
         className="
           absolute 
-          top-1/2 -translate-y-1/2 
+          top-1/6 sm:top-1/2 sm:-translate-y-1/2 
           left-6 md:left-12 lg:left-20 
           flex flex-col items-start justify-center
           z-0
@@ -92,13 +92,17 @@ export default function WhatOurPatientsSay() {
           md:auto-cols-[33vw]
           lg:auto-cols-[28vw]
           gap-x-6
-          gap-y-[-10px]
+          gap-y-[-1000px] sm:gap-y-[-10px]
           w-max 
-          h-full 
+          sm:h-full 
           px-10 md:px-20           
           justify-items-center
           items-center
-          py-24          
+          py-24
+          pb-4
+          h-[80%]
+          self-end
+          
         "
       >
         {testimonials.map((t, i) => {
